@@ -1,4 +1,3 @@
-# README — Esquema OpenAPI para Busca de Imóveis
 
 ## 🎯 Objetivo
 Definir uma *action* para Assistentes GPT consultarem imóveis na API Vistahost (ou compatível).
