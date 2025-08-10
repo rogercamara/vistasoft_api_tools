@@ -1,4 +1,3 @@
-# README — importa_imoveis_mysql.py
 
 ## 🎯 Objetivo
 Versão MySQL do importador de imóveis.
