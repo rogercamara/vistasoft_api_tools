@@ -1,4 +1,3 @@
-# README — Endpoint Next.js de Métricas de Negócios
 
 ## 🎯 Objetivo
 Endpoint `GET /api/negocios/[etapa]/[status]/[periodo]` para retornar métricas de negócios da API Vistahost.
