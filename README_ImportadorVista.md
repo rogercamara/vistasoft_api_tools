@@ -1,5 +1,3 @@
-# README — ImportadorVista.py
-
 ## 🎯 Objetivo
 Script Python para importar **imóveis** da API Vistahost (ou compatível) e inserir/atualizar (upsert) no banco de dados (Postgres/Supabase).
 Usa paginação automática e normaliza campos de data e booleanos.
