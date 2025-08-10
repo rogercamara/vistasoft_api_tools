@@ -1,0 +1,104 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Imobiliária X - Buscar Imóveis",
+    "version": "1.0.0",
+    "description": "Esquema de consulta de imóveis via API Vistahost (ou compatível), incluindo informações adicionais de corretor e datas de cadastro/atualização. Usado como 'action' em um assistente GPT para buscar imóveis sob demanda."
+  },
+  "servers": [
+    {
+      "url": "https://api-ENDPOINT-FINAL-placeholder.com"
+    }
+  ],
+  "paths": {
+    "/imoveis/listar": {
+      "get": {
+        "operationId": "buscarImoveis",
+        "summary": "Listar imóveis com filtros e dados adicionais como corretor, datas e foto destaque.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Chave de API fornecida pela imobiliária/parceiro.",
+              "example": "sua_chave_api_aqui"
+            }
+          },
+          {
+            "name": "showtotal",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "pesquisa",
+            "in": "query",
+            "required": true,
+            "description": "JSON serializado como string com fields, filters, order e paginacao.",
+            "schema": {
+              "type": "string",
+              "example": "{\"fields\":[\"Codigo\",\"Categoria\",\"Bairro\",\"Cidade\",\"ValorVenda\",\"ValorLocacao\",\"Dormitorios\",\"Suites\",\"Vagas\",\"AreaTotal\",\"AreaPrivativa\",\"Caracteristicas\",\"InfraEstrutura\",\"DataCadastro\",\"DataAtualizacao\",\"CodigoCorretor\",\"CorretorNome\",\"Agenciador\",\"FotoDestaque\"],\"filter\":{\"Cidade\":[\"Cidade X\"],\"Bairro\":[\"Bairro Y\"]},\"order\":{\"Bairro\":\"asc\"},\"paginacao\":{\"pagina\":1,\"quantidade\":50}}"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/json"
+              ],
+              "default": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Imóveis listados com sucesso.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "12": {
+                    "Codigo": "12",
+                    "Categoria": "Apartamento",
+                    "Bairro": "Bairro Y",
+                    "Cidade": "Cidade X",
+                    "ValorVenda": "1250000",
+                    "ValorLocacao": "0",
+                    "Dormitorios": "3",
+                    "Suites": "1",
+                    "Vagas": "2",
+                    "AreaTotal": "150",
+                    "AreaPrivativa": "120",
+                    "Caracteristicas": {
+                      "Agua Quente": "Sim",
+                      "Lareira": "Sim",
+                      "Churrasqueira": "Sim"
+                    },
+                    "InfraEstrutura": {
+                      "Elevador": "Sim",
+                      "Salao Festas": "Sim",
+                      "Piscina Coletiva": "Sim"
+                    },
+                    "DataCadastro": "2022-05-23",
+                    "DataAtualizacao": "2025-06-11",
+                    "CodigoCorretor": "332",
+                    "CorretorNome": "332:JOÃO SILVA",
+                    "Agenciador": "332",
+                    "FotoDestaque": "https://cdn.exemplo.com/fotos/12345/imagem.jpg"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
