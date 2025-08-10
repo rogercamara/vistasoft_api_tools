@@ -1,4 +1,3 @@
-# README — ImportadorProntuarios.py
 
 ## 🎯 Objetivo
 Script Python para importar **prontuários de imóveis** da API Vistahost e inserir/atualizar na tabela `imovel_prontuario`.
